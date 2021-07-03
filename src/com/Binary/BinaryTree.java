@@ -24,6 +24,14 @@ public class BinaryTree<K extends Comparable<K>> {
 		return current;
 	}
 
+	public int getSize() {
+		return this.getSizeRecursive(root);
+	}
+
+	private int getSizeRecursive(BinaryNode<K> current) {
+		return current == null ? 0 : 1 + this.getSizeRecursive(current.left) + this.getSizeRecursive(current.right);
+	}
+
 	public void displayNode() {
 		displayNode(root);
 	}
