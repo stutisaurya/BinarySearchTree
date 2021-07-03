@@ -44,4 +44,20 @@ public class BinaryTree<K extends Comparable<K>> {
 		}
 	}
 
+	public BinaryNode<K> searchNode(K key) {
+		return searchNode(root, key);
+	}
+
+	private BinaryNode<K> searchNode(BinaryNode<K> root, K key) {
+
+		if (root == null || root.key == key)
+			return root;
+
+		int compareResult = root.key.compareTo(key);
+		if (compareResult < 0) {
+			return searchNode(root.right, key);
+		}
+
+		return searchNode(root.left, key);
+	}
 }
